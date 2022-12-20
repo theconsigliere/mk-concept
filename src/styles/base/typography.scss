@@ -205,11 +205,15 @@ li {
 	letter-spacing: 3px;
 }
 
-.font-bold {
+.font-bolder {
 	font-weight: $type-bold;
 }
 
 .uppercase {
 	text-transform: uppercase;
 	letter-spacing: 3px;
+}
+
+.p--small {
+	font-size: 1.05rem;
 }

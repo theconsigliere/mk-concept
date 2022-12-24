@@ -1,7 +1,15 @@
 <script>
+	import { onMount } from 'svelte';
 	import Logo from '$lib/images/svgs/logo.svelte';
 	import Dashboard from '$lib/components/header/states/dashboard/dashboard.svelte';
+	import HelloComponent from '$lib/components/header/components/helloComponent.svelte';
+	import SquareButton from '$lib/components/header/buttons/squareButton.svelte';
+	import { gsap } from 'gsap';
+	import dynamicIslandStore from '../../../store.js';
+	import { updateDynamicIslandByClick } from '../../../store.js';
 
+	console.log(dynamicIslandStore);
+	// if hovering over logo, update logo component
 	let isHovering = false;
 
 	function hoverEnter() {
@@ -11,6 +19,24 @@
 	function hoverLeave() {
 		isHovering = false;
 	}
+
+	// Subscribe to the store to get the current value
+	function handleClick(value) {
+		console.log(value);
+		updateDynamicIslandByClick(value);
+	}
+
+	// animate in gsap
+	onMount(() => {
+		gsap.set('.DynamicIsland__grill--piece', { xPercent: -100 });
+
+		gsap.to('.DynamicIsland__grill--piece', {
+			duration: 3,
+			stagger: 0.5,
+			xPercent: 0,
+			ease: 'expo.inOut'
+		});
+	});
 </script>
 
 <header class="DynamicIsland">
@@ -24,11 +50,29 @@
 			<div class="DI__speaker-border" />
 		</div>
 		<div class="DI__section-unit">
-			<Dashboard />
+			<div class="DI_dashboard">
+				<div class="DI_Dashboard__top">
+					<HelloComponent />
+					<SquareButton title={$dynamicIslandStore.dashboardTitle} on:click={handleClick} />
+				</div>
+				<div class="DynamicIsland__grill">
+					<div class="DynamicIsland__grill--piece" />
+					<div class="DynamicIsland__grill--piece" />
+					<div class="DynamicIsland__grill--piece" />
+					<div class="DynamicIsland__grill--piece" />
+				</div>
+
+				<Dashboard />
+			</div>
 		</div>
 		<div class="DI__speaker-unit">
 			<div class="DI__speaker-border" />
-			<p class="white DI__speaker-text">Contact</p>
+			<button
+				on:click={handleClick($dynamicIslandStore.speakerUnit)}
+				class="white DI__speaker-text"
+			>
+				{$dynamicIslandStore.speakerUnit}</button
+			>
 		</div>
 	</div>
 </header>
@@ -83,6 +127,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		z-index: -1;
 	}
 
 	.DI__section-unit {
@@ -96,5 +141,34 @@
 	}
 	.DI__speaker-text {
 		margin-bottom: 0;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	.DynamicIsland__grill {
+		width: 100%;
+		margin: 1rem 0;
+		overflow: hidden;
+
+		&--piece {
+			width: 100%;
+			height: 0.125rem;
+			background: var(--color-dark-grey);
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.DI_Dashboard__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		flex: 0 0 40%;
+	}
+
+	.DI_dashboard {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 </style>

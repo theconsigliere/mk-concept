@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"gsap": "npm:@gsap/shockingly@^3.11.3",
 		"sass": "^1.57.0",
 		"svelte-preprocess": "^5.0.0"
 	}

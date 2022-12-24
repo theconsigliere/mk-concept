@@ -1,6 +1,6 @@
 <script>
 	// 1. allow user to select title
-	export let title = 'default title';
+	export let title = 'Default title';
 	// 2. allow user to select link that updates store of change of state
 	// 3. svg animation
 </script>

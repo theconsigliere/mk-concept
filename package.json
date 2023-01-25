@@ -23,7 +23,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@prismicio/client": "^6.7.3",
+		"@prismicio/helpers": "^2.3.8",
+		"@studio-freight/lenis": "^0.2.28",
 		"gsap": "npm:@gsap/shockingly@^3.11.3",
+		"imagesloaded": "^5.0.0",
 		"sass": "^1.57.0",
 		"svelte-preprocess": "^5.0.0"
 	}

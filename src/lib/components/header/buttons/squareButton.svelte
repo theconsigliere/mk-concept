@@ -3,9 +3,13 @@
 	export let title = 'Default title';
 	// 2. allow user to select link that updates store of change of state
 	// 3. svg animation
+
+	function handleClick() {
+		console.log('clicked');
+	}
 </script>
 
-<button class="btn--square">
+<button class="btn--square" on:click={handleClick}>
 	<div class="button__title white p--small">{title}</div>
 	<div class="button__svg">
 		<svg

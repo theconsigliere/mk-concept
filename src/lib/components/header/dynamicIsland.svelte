@@ -8,7 +8,7 @@
 	import dynamicIslandStore from '../../../store.js';
 	import { updateDynamicIslandByClick } from '../../../store.js';
 
-	console.log(dynamicIslandStore);
+	//console.log(dynamicIslandStore);
 	// if hovering over logo, update logo component
 	let isHovering = false;
 
@@ -53,7 +53,7 @@
 			<div class="DI_dashboard">
 				<div class="DI_Dashboard__top">
 					<HelloComponent />
-					<SquareButton title={$dynamicIslandStore.dashboardTitle} on:click={handleClick} />
+					<SquareButton title={$dynamicIslandStore.dashboardTitle} />
 				</div>
 				<div class="DynamicIsland__grill">
 					<div class="DynamicIsland__grill--piece" />

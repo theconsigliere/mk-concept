@@ -7,7 +7,6 @@
 	import { page } from '$app/stores';
 
 	// set up smooth scroll on content
-	console.log(data);
 
 	// change the state of the dynamic island based on the route
 	$: updateDynamicIslandByRoute($page.route.id);

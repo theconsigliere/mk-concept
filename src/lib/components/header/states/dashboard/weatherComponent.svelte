@@ -59,6 +59,7 @@
 <style lang="scss">
 	.WeatherComponent__text {
 		margin-bottom: 0.25rem;
+		text-align: right;
 	}
 
 	.WeatherComponent__info {

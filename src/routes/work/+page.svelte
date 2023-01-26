@@ -1,11 +1,19 @@
 <script>
+	//import imagesLoaded from 'imagesloaded';
+	import { onMount } from 'svelte';
 	export let data;
-	const document = data.document.data;
+	let holder;
+	let items = [];
 
-	// from prismic
 	const page = {
+		DOM: {
+			gridItems: items
+		},
 		images: {}
 	};
+
+	// prisimic
+	const document = data.document.data;
 
 	// map over the work group and add the images to the page object
 	document.my_work_group.map((item, i) => {
@@ -17,13 +25,30 @@
 			alt
 		};
 	});
+
+	// infintie scroll
+
+	// repeat first six items by cloning them and appending them to the .grid
+	const repeatItems = (parent, items) => {
+		for (let i = 0; i <= items.length - 1; ++i) {
+			let cln = items[i].cloneNode(true);
+			console.log(cln);
+			parent.appendChild(cln);
+		}
+	};
+
+	onMount(() => {
+		repeatItems(holder, page.DOM.gridItems);
+	});
+
+	// for loop to add the correct class to each item
 </script>
 
 <main>
-	<div class="Work__grid">
+	<div class="Work__grid" bind:this={holder}>
 		<!-- iterate over object in svelte -->
 		{#each Object.keys(page.images) as key, index}
-			<div class="Work__image Work__image--{index}">
+			<div class="Work__image Work__image--{index}" bind:this={items[index]}>
 				<img
 					src={page.images[key].url}
 					alt={page.images[key].alt}
@@ -39,6 +64,9 @@
 	.Work__grid {
 		height: 295rem;
 		position: relative;
+		z-index: -1;
+		width: 100%;
+		overflow-x: hidden;
 		//visibility: hidden;
 	}
 
@@ -49,39 +77,39 @@
 		img {
 			object-fit: cover;
 			height: 100%;
-			width: auto;
+			width: 100%;
 		}
 
 		&--0 {
-			height: 40rem;
-			width: 70rem;
+			height: 55rem;
+			width: 50rem;
 		}
 
 		&--1 {
 			height: 50rem;
-			left: 85rem;
-			top: 30rem;
+			left: 65rem;
+			top: 10rem;
 			width: 40rem;
 		}
 
 		&--2 {
 			height: 50rem;
-			left: 15rem;
+			left: 5rem;
 			top: 60rem;
-			width: 60rem;
-		}
-
-		&--3 {
-			height: 30rem;
-			right: 0;
-			top: 10rem;
 			width: 50rem;
 		}
 
+		&--3 {
+			height: 20rem;
+			right: 0rem;
+			top: 61rem;
+			width: 15rem;
+		}
+
 		&--4 {
-			height: 60rem;
-			right: 15rem;
-			top: 55rem;
+			height: 30rem;
+			right: 20rem;
+			top: 75rem;
 			width: 40rem;
 		}
 
@@ -93,54 +121,31 @@
 		}
 
 		&--6 {
-			height: 70rem;
+			height: 60rem;
 			right: 0;
-			top: 130rem;
+			top: 160rem;
 			width: 50rem;
 		}
 
 		&--7 {
-			height: 50rem;
+			height: 45rem;
 			left: 85rem;
-			top: 95rem;
+			top: 115rem;
 			width: 40rem;
 		}
 
 		&--8 {
 			height: 65rem;
-			left: 75rem;
-			top: 155rem;
+			left: 5rem;
+			top: 225rem;
 			width: 50rem;
 		}
 
 		&--9 {
 			height: 43rem;
 			right: 0;
-			top: 215rem;
+			top: 245rem;
 			width: 30rem;
 		}
-
-		&--10 {
-			height: 50rem;
-			left: 70rem;
-			top: 235rem;
-			width: 80rem;
-		}
-
-		&--11 {
-			left: 0;
-			top: 210rem;
-			height: 70rem;
-			width: 50rem;
-		}
-	}
-
-	.demo-1__gallery__image {
-		height: 100%;
-		left: 0;
-		object-fit: cover;
-		position: absolute;
-		top: 0;
-		width: 100%;
 	}
 </style>

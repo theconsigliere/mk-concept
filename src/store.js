@@ -46,7 +46,7 @@ export async function updateDynamicIslandByClick(state) {
 			dynamicIslandStore.update((s) => {
 				return {
 					...s,
-					state: s,
+					state: state,
 					dashboardTitle: 'Navigate',
 					speakerUnit: 'Contact'
 				};
@@ -56,7 +56,7 @@ export async function updateDynamicIslandByClick(state) {
 			dynamicIslandStore.update((s) => {
 				return {
 					...s,
-					state: s,
+					state: state,
 					dashboardTitle: 'Dashboard',
 					speakerUnit: 'Navigate'
 				};
@@ -66,7 +66,7 @@ export async function updateDynamicIslandByClick(state) {
 			dynamicIslandStore.update((s) => {
 				return {
 					...s,
-					state: s,
+					state: state,
 					dashboardTitle: 'Dashboard',
 					speakerUnit: 'Contact'
 				};

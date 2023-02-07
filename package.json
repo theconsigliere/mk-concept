@@ -12,6 +12,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
+		"@types/p5": "^1.4.2",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -28,6 +29,7 @@
 		"@studio-freight/lenis": "^0.2.28",
 		"gsap": "npm:@gsap/shockingly@^3.11.3",
 		"imagesloaded": "^5.0.0",
+		"p5-svelte": "^3.1.2",
 		"sass": "^1.57.0",
 		"svelte-preprocess": "^5.0.0"
 	}

@@ -11,11 +11,20 @@
  
  ******************************************************************/
 
-/*********************
- Screen Sizes
- Need help w/ choosing your colors? Try this site out:
- http://0to255.com/
- *********************/
+// FONTS
+// --------------------------------------
+
+@import url('https://use.typekit.net/mgf4gkh.css');
+
+@font-face {
+	font-family: 'Dweezil';
+	font-style: normal;
+	font-weight: 500;
+	src: url('/fonts/Dweezil-Regular.woff'); /* IE9 Compat Modes */
+}
+
+// BREAKPOINTS
+// --------------------------------------
 
 $screen-xs: 0;
 $screen-sm: 576px;
@@ -23,49 +32,23 @@ $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
 $screen-xxl: 1440px;
-$screen-xxxl: 1920px;
-
-// Attributes ---------------------------------------------------------- */
-
-$drop-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-$drop-shadow-subtle: -2px 1px 17px 1px rgba(0, 0, 0, 0.1);
-
-$bb: 2px solid white;
-$page-margin-column: 5vw;
-$page-margin-row: 5vh;
-$text-space: 2rem;
-
-// Animation ---------------------------------------------------------- */
-
-$bezier: cubic-bezier(0.215, 0.61, 0.355, 1);
-$timing: 1s;
-
-// FONTS
-// --------------------------------------
-$headline-font: 'Roboto Flex', sans-serif;
-$text-font: 'Roboto Flex', sans-serif;
-
-// Font Weight
-
-$type-bold: 700;
-$type-sembold: 600;
-$type-mid: 500;
-$type-thin: 300;
-$type-super-thin: 200;
-
-//*********************
-//COLORS
-//Need help w/ choosing your colors? Try this site out:
-//http://0to255.com/
-//*********************/
-// ––––––––––––––––––––––––––––––––––––––––––––––––––
+$screen-3xl: 1920px;
 
 :root {
 	// colours
+	--font-headline: 'neue-haas-grotesk-display', sans-serif;
+	--font-body: 'neue-haas-grotesk-display', sans-serif;
+	--font-cursive: 'Dweezil', serif;
+	--type-bold: 700;
+	--type-sembold: 600;
+	--type-mid: 500;
+	--type-thin: 300;
+	--type-super-thin: 200;
 	--color-light-grey: #f0f0f0;
 	--color-dark-grey: #363636;
 	--color-grey: #e6e6e6;
-	--color-black: #000;
+	--color-black: rgb(12, 12, 12);
+	--color-background-black: rgb(18, 18, 18);
 	--color-white: #fffcf2;
 	--color-real-white: #fffcf2;
 	--color-blue: #0056ac;
@@ -79,10 +62,6 @@ $type-super-thin: 200;
 	--black-shadow: #00000026;
 	--border-radius: 1rem;
 }
-
-$text-color: var(--color-dark-grey);
-$link-color: var(--color-blue);
-$link-hover: var(--color-dark-blue);
 
 .gray {
 	background-color: var(--color-light-grey);

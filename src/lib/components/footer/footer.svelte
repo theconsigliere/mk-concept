@@ -3,7 +3,7 @@
 </script>
 
 <footer class="Footer">
-	<h6>{message}</h6>
+	<!-- <h6>{message}</h6> -->
 </footer>
 
 <style lang="scss">

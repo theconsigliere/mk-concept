@@ -129,12 +129,14 @@
 		position: fixed;
 		bottom: 1rem;
 		left: 50%;
+		z-index: 99;
 		transform: translate(-50%, 0);
 		background: var(--color-black);
 		width: 60%;
 		border-radius: 50rem;
 		height: 15rem;
 		overflow: hidden;
+		border: 0.1rem solid var(--color-dark-grey);
 		transition: width 0.75s cubic-bezier(0.41, 0.21, 0.42, 0.97);
 
 		&:global(.js-loading) {
